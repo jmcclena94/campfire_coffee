@@ -44,42 +44,21 @@ var websiteSales = new shopLocData('Website Sales',3,6,0,6.7);
 
 function appendData(location) {
   var paragraphEl = document.createElement('p');
-  paragraphEl.textContent = pikePlaceMarket.location;
+  var parId = 'parId';
+  paragraphEl.textContent = location.location;
   document.body.appendChild(paragraphEl);
+
+  var unorderedListEl = document.createElement('ul');
+  var ulId = location.location + 'ulId';
+  unorderedListEl.id = ulId;
+  document.body.appendChild(unorderedListEl);
+
   for (i = 0; i < hours.length; i++) {
-    if (hours[i] < 12) {
 
-      var unorderedListEl = document.createElement('ul');
-      var tempId = 'ul' + hours[i];
-      unorderedListEl.id = tempId;
-      document.body.appendChild(unorderedListEl);
+    var listEl = document.createElement('li');
+    listEl.textContent = hoursString[i] + ': ' + location.totLbs[i] + ' lbs [' + location.customers[i] + ' customers, ' + location.cups[i] + ' cups (' + location.cupLbs[i] + ' lbs), ' + location.rawLbs[i] + ' lbs to-go]';
+    document.getElementById(ulId).appendChild(listEl);
 
-      var listEl = document.createElement('li');
-      listEl.textContent = hoursString[i] + ': ' + location.totLbs[i] + ' [' + location.customers[i] + ' customers, ' + location.cups[i] + ' cups (' + location.cupLbs[i] + ' lbs), ' + location.rawLbs[i] + ' lbs to-go]';
-      document.getElementById(tempId).appendChild(listEl);
-
-    } else if (hours[i] == 12) {
-      var unorderedListEl = document.createElement('ul');
-      var tempId = 'ul' + hours[i];
-      unorderedListEl.id = tempId;
-      document.body.appendChild(unorderedListEl);
-
-      var listEl = document.createElement('li');
-      listEl.textContent = hoursString[i] + ': ' + location.totLbs[i] + ' [' + location.customers[i] + ' customers, ' + location.cups[i] + ' cups (' + location.cupLbs[i] + ' lbs), ' + location.rawLbs[i] + ' lbs to-go]';
-      document.getElementById(tempId).appendChild(listEl);
-
-    } else {
-
-      var unorderedListEl = document.createElement('ul');
-      var tempId = 'ul' + hours[i];
-      unorderedListEl.id = tempId;
-      document.body.appendChild(unorderedListEl);
-
-      var listEl = document.createElement('li');
-      listEl.textContent = hoursString[i] + ': ' + location.totLbs[i] + ' [' + location.customers[i] + ' customers, ' + location.cups[i] + ' cups (' + location.cupLbs[i] + ' lbs), ' + location.rawLbs[i] + ' lbs to-go]';
-      document.getElementById(tempId).appendChild(listEl);
-
-    }
   }
 }
 

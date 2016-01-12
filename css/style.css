@@ -1,0 +1,14 @@
+.title {
+  color: Green;
+  text-align: center;
+}
+
+.image {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.link {
+  text-align: center;
+}
