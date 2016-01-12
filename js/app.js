@@ -77,7 +77,7 @@ function tableData(location) {
   var th3Id = 'th3Id' + location.location;
   th3El.id = th3Id;
   th3El.textContent = 'Total Pounds(lbs)';
-  document.getElementById(trId).appendChild(th2El);
+  document.getElementById(trId).appendChild(th3El);
 
   var th4El = document.createElement('th');
   var th4Id = 'th4Id' + location.location;
@@ -109,30 +109,37 @@ function tableData(location) {
     tempTrEl.id = tempTrId;
     document.getElementById(tabId).appendChild(tempTrEl);
 
-    var tempTdEl1 = document.createElement('td');
-    tempTdEl1.textContent = location.location;
-    tempTdEl1.rowspan = '15';
-    document.getElementById(tempTrId).appendChild(tempTdEl1);
+    if (i === 0) {
+      var tempTdEl1 = document.createElement('td');
+      tempTdEl1.textContent = location.location;
+      tempTdEl1.rowSpan = '15';
+      document.getElementById(tempTrId).appendChild(tempTdEl1);
+    }
+
 
     var tempTdEl2 = document.createElement('td');
     tempTdEl2.textContent = hoursString[i];
     document.getElementById(tempTrId).appendChild(tempTdEl2);
 
     var tempTdEl3 = document.createElement('td');
-    tempTdEl3.textContent = location.customers[i];
+    tempTdEl3.textContent = location.totLbs[i];
     document.getElementById(tempTrId).appendChild(tempTdEl3);
 
     var tempTdEl4 = document.createElement('td');
-    tempTdEl4.textContent = location.cups[i];
+    tempTdEl4.textContent = location.customers[i];
     document.getElementById(tempTrId).appendChild(tempTdEl4);
 
     var tempTdEl5 = document.createElement('td');
-    tempTdEl5.textContent = location.cupLbs[i];
+    tempTdEl5.textContent = location.cups[i];
     document.getElementById(tempTrId).appendChild(tempTdEl5);
 
     var tempTdEl6 = document.createElement('td');
-    tempTdEl6.textContent = location.rawLbs[i];
+    tempTdEl6.textContent = location.cupLbs[i];
     document.getElementById(tempTrId).appendChild(tempTdEl6);
+
+    var tempTdEl7 = document.createElement('td');
+    tempTdEl7.textContent = location.rawLbs[i];
+    document.getElementById(tempTrId).appendChild(tempTdEl7);
   }
 }
 
