@@ -12,3 +12,18 @@
 .link {
   text-align: center;
 }
+
+.locList {
+  display: table;
+  margin-left: auto;
+  margin-right: auto;
+  color: brown;
+}
+
+.map {
+  width: 500px;
+  height: 400px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
