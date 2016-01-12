@@ -116,7 +116,6 @@ function tableData(location) {
       document.getElementById(tempTrId).appendChild(tempTdEl1);
     }
 
-
     var tempTdEl2 = document.createElement('td');
     tempTdEl2.textContent = hoursString[i];
     document.getElementById(tempTrId).appendChild(tempTdEl2);
