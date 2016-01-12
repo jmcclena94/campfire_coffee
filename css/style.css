@@ -1,12 +1,19 @@
 .title {
-  color: Green;
+  color: #194635;
   text-align: center;
+  background-color: #31A076;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 .image {
   display: block;
-  margin-left: auto;
+  margin: 10px auto 10px auto;
+  /*margin-left: auto;
   margin-right: auto;
+  margin-top: 10px;
+  margin-bottom: 10px;*/
+  background-color: #AA7B39;
 }
 
 .link {
@@ -17,7 +24,7 @@
   display: table;
   margin-left: auto;
   margin-right: auto;
-  color: brown;
+  color: #673A25;
 }
 
 .map {
