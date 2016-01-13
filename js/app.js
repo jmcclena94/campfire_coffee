@@ -173,13 +173,13 @@ formSubmitEl.id = 'button';
 formSubmitEl.type = 'button';
 formEl.appendChild(formSubmitEl);
 
-// function getLoc() {
-//   var locField = document.formParagraph1El.value;
-//   var result = document.dummyParagraphEl;
-// }
+function getLoc() {
+  var locField = document.formParagraph1El.value;
+  var result = document.dummyParagraphEl;
+}
 
 // var subButton = document.formSubmitEl;
-// formSubmitEl.addEventListener('onClick', getLoc(), false);
+formSubmitEl.addEventListener('click', getLoc, false);
 // var formSubmitEl = document.createElement('input');
 // formSubmitEl.type = 'button';
 // formSubmitEl.name = 'location data';
