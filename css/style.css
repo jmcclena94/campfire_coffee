@@ -1,36 +1,14 @@
-.title {
-  color: #194635;
-  text-align: center;
-  background-color: #31A076;
-  margin-top: 10px;
-  margin-bottom: 10px;
-}
-
-.image {
-  display: block;
-  margin: 10px auto 10px auto;
-  /*margin-left: auto;
-  margin-right: auto;
-  margin-top: 10px;
-  margin-bottom: 10px;*/
-  background-color: #AA7B39;
-}
-
-.link {
+ul {
   text-align: center;
 }
 
-.locList {
-  display: table;
-  margin-left: auto;
-  margin-right: auto;
-  color: #673A25;
+.nav {
+  display: inline;
+  margin: auto 10px auto 10px;
 }
 
-.map {
+.tentImage {
+  position: relative;
   width: 500px;
-  height: 400px;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
+  left: 2
 }
