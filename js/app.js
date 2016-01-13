@@ -165,118 +165,13 @@ tablePopulate(websiteSales);
 
 // FORM SECTION
 
-var formEl = document.createElement('form');
-document.body.appendChild(formEl);
+function locData() {
+  var newLocData = document.getElementById('formLocation').value;
+  var newMinCust = document.getElementById('minimumCustomers').value;
+  var newMaxCust = document.getElementById('maximumCustomers').value;
+  var newCupsPer = document.getElementById('cupsPerCustomer').value;
+  var newToGoPer = document.getElementById('lbsPerCustomer').value;
 
-var fieldsetEl = document.createElement('fieldset');
-formEl.appendChild(fieldsetEl);
-
-var legendEl = document.createElement('legend');
-legendEl.textContent = 'Add a new location';
-fieldsetEl.appendChild(legendEl);
-
-var formParagraph1El = document.createElement('label');
-formParagraph1El.textContent = 'Location';
-fieldsetEl.appendChild(formParagraph1El);
-
-var formInput1El = document.createElement('input');
-formInput1El.type = 'text';
-formInput1El.name = 'newInputLocation';
-formInput1El.size = 15;
-formInput1El.maxLength = 30;
-formInput1El.id = 'formLocation';
-formParagraph1El.appendChild(formInput1El);
-
-var dummyParagraph1El = document.createElement('p');
-dummyParagraph1El.id = 'result1';
-fieldsetEl.appendChild(dummyParagraph1El);
-
-var formParagraph2El = document.createElement('label');
-formParagraph2El.textContent = 'Minimum customers';
-fieldsetEl.appendChild(formParagraph2El);
-
-var formInput2El = document.createElement('input');
-formInput2El.type = 'text';
-formInput2El.name = 'minimum customers';
-formInput2El.size = 15;
-formInput2El.maxLength = 30;
-formInput2El.id = 'minimumCustomers';
-formParagraph2El.appendChild(formInput2El);
-
-var dummyParagraph2El = document.createElement('p');
-dummyParagraph2El.id = 'result2';
-fieldsetEl.appendChild(dummyParagraph2El);
-
-var formParagraph3El = document.createElement('label');
-formParagraph3El.textContent = 'Maximum customers';
-fieldsetEl.appendChild(formParagraph3El);
-
-var formInput3El = document.createElement('input');
-formInput3El.type = 'text';
-formInput3El.name = 'maximum customers';
-formInput3El.size = 15;
-formInput3El.maxLength = 30;
-formInput3El.id = 'maximumCustomers';
-formParagraph3El.appendChild(formInput3El);
-
-var dummyParagraph3El = document.createElement('p');
-dummyParagraph3El.id = 'result3';
-fieldsetEl.appendChild(dummyParagraph3El);
-
-var formParagraph4El = document.createElement('label');
-formParagraph4El.textContent = 'Cups per customer';
-fieldsetEl.appendChild(formParagraph4El);
-
-var formInput4El = document.createElement('input');
-formInput4El.type = 'text';
-formInput4El.name = 'cups per customer';
-formInput4El.size = 15;
-formInput4El.maxLength = 30;
-formInput4El.id = 'cupsPerCustomer';
-formParagraph4El.appendChild(formInput4El);
-
-var dummyParagraph4El = document.createElement('p');
-dummyParagraph4El.id = 'result4';
-fieldsetEl.appendChild(dummyParagraph4El);
-
-var formParagraph5El = document.createElement('label');
-formParagraph5El.textContent = 'Pounds per customer';
-fieldsetEl.appendChild(formParagraph5El);
-
-var formInput5El = document.createElement('input');
-formInput5El.type = 'text';
-formInput5El.name = 'pounds per customer';
-formInput5El.size = 15;
-formInput5El.maxLength = 30;
-formInput5El.id = 'lbsPerCustomer';
-formParagraph5El.appendChild(formInput5El);
-
-var dummyParagraph5El = document.createElement('p');
-dummyParagraph5El.id = 'result5';
-fieldsetEl.appendChild(dummyParagraph5El);
-
-var formSubmitEl = document.createElement('button');
-formSubmitEl.textContent = 'Submit';
-formSubmitEl.id = 'button';
-formSubmitEl.type = 'button';
-fieldsetEl.appendChild(formSubmitEl);
-
-function getLoc() {
-  var locField = formParagraph1El.value;
-  // var result = document.dummyParagraphEl;
+  var newLocation = new shopLocData(newLocData,newMinCust,newMaxCust,newCupsPer,newToGoPer);
+  tablePopulate(newLocation);
 }
-
-// var subButton = document.formSubmitEl;
-formSubmitEl.addEventListener('click', getLoc(), false);
-// var formSubmitEl = document.createElement('input');
-// formSubmitEl.type = 'button';
-// formSubmitEl.name = 'location data';
-// formSubmitEl.value = 'click';
-// formEl.appendChild(formSubmitEl);
-
-// function inputLoc() {
-//   var inputLocation = formInput1El.value;
-//   alert ('You typed: ' + inputLocation);
-// }
-//
-// formInput1El.addEventListener('onClick',inputLoc,true);
