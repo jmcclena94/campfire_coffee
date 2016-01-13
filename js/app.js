@@ -4,7 +4,6 @@
 /* jshint -W040 */
 /* jshint -W097 */
 
-var lbsPerCup = 0.05;
 var hoursString = ['6 am','7 am','8 am','9 am','10 am','11 am','12 pm','1 pm','2 pm','3 pm','4 pm','5 pm','6 pm','7 pm','8 pm'];
 
 function shopLocData(location,minCustomers,maxCustomers,cupsPer,poundsPer) {
@@ -21,6 +20,7 @@ function shopLocData(location,minCustomers,maxCustomers,cupsPer,poundsPer) {
   this.totLbs = [];
   this.calculator = function () {
     for (var i = 0; i < hoursString.length; i++) {
+      var lbsPerCup = 0.05;
       var randomCustomers = Math.floor(Math.random() * (maxCustomers - minCustomers) + 1) + minCustomers;
       var tempCups = randomCustomers * cupsPer;
       var tempCupLbs = tempCups * lbsPerCup;
@@ -44,63 +44,50 @@ var seaTacAirport = new shopLocData('SeaTac Airport',68,124,1.1,2.7);
 var websiteSales = new shopLocData('Website Sales',3,6,0,6.7);
 
 var tableEl = document.createElement('table');
-var tabId = 'tableId';
-tableEl.id = tabId;
 document.body.appendChild(tableEl);
 
 var theadEl = document.createElement('thead');
-var theadId = 'theadId';
-theadEl.id = theadId;
-document.getElementById(tabId).appendChild(theadEl);
+tableEl.appendChild(theadEl);
 
 var trTopEl = document.createElement('tr');
-var trTopId = 'trTopId';
-trTopEl.id = trTopId;
-document.getElementById(theadId).appendChild(trTopId);
+theadEl.appendChild(trTopEl);
 
-var tdTopEl = document.createElement('td');
-var tdTopId
+var td1TopEl = document.createElement('td');
+trTopEl.appendChild(td1TopEl);
+
+var td2TopEl = document.createElement('td');
+td2TopEl.textContent = 'Coffee Pounds Required per Location per Hour (lbs)';
+td2TopEl.colSpan = 15;
+trTopEl.appendChild(td2TopEl);
 
 var trEl = document.createElement('tr');
-var trId = 'trId';
-trEl.id = trId;
-document.getElementById(theadId).appendChild(trEl);
+theadEl.appendChild(trEl);
 
 var th1El = document.createElement('th');
-var th1Id = 'th1Id';
-th1El.id = th1Id;
 th1El.textContent = 'Location';
-document.getElementById(trId).appendChild(th1El);
+trEl.appendChild(th1El);
 
 function initTable(hoursString) {
   for (var i = 0; i < hoursString.length; i++) {
     var iEl = document.createElement('th');
-    var iId = 'th2Id' + hoursString[i];
-    iEl.id = iId;
     iEl.textContent = hoursString[i];
-    document.getElementById(trId).appendChild(iEl);
+    trEl.appendChild(iEl);
   }
 }
 initTable(hoursString);
 
 function tablePopulate(location) {
   var rowEl = document.createElement('tr');
-  var rowId = 'rowId' + location.location;
-  rowEl.id = rowId;
-  document.getElementById(tabId).appendChild(rowEl);
+  tableEl.appendChild(rowEl);
 
   var nameEl = document.createElement('td');
-  var nameId = 'nameId' + location.location;
-  nameEl.id = nameId;
   nameEl.textContent = location.location;
-  document.getElementById(rowId).appendChild(nameEl);
+  rowEl.appendChild(nameEl);
 
   for (var i = 0; i < hoursString.length; i++) {
     var tdEl = document.createElement('td');
-    var tdId = 'tdId' + hoursString[i];
-    tdEl.id = tdId;
     tdEl.textContent = location.totLbs[i];
-    document.getElementById(rowId).appendChild(tdEl);
+    rowEl.appendChild(tdEl);
   }
 }
 
@@ -111,67 +98,97 @@ tablePopulate(southLakeUnion);
 tablePopulate(seaTacAirport);
 tablePopulate(websiteSales);
 
-// function tableData(location) {
-//   var tableEl = document.createElement('table');
-//   var tabId = 'tableId' + location.location;
-//   tableEl.id = tabId;
-//   document.body.appendChild(tableEl);
-//
-//   var theadEl = document.createElement('thead');
-//   var theadId = 'theadId' + location.location;
-//   theadEl.id = theadId;
-//   document.getElementById(tabId).appendChild(theadEl);
-//
-//   var trEl = document.createElement('tr');
-//   var trId = 'trId' + location.location;
-//   trEl.id = trId;
-//   document.getElementById(theadId).appendChild(trEl);
-//
-//   var th1El = document.createElement('th');
-//   var th1Id = 'th1Id' + location.location;
-//   th1El.id = th1Id;
-//   th1El.textContent = 'Location';
-//   document.getElementById(trId).appendChild(th1El);
-//
-//   var th2El = document.createElement('th');
-//   var th2Id = 'th2Id' + location.location;
-//   th2El.id = th2Id;
-//   th2El.textContent = 'Hours';
-//   document.getElementById(trId).appendChild(th2El);
-//
-//   var th3El = document.createElement('th');
-//   var th3Id = 'th3Id' + location.location;
-//   th3El.id = th3Id;
-//   th3El.textContent = 'Total Pounds(lbs)';
-//   document.getElementById(trId).appendChild(th3El);
-//
-//   for (var i = 0; i < hoursString.length; i++) {
-//     var tempTrEl = document.createElement('tr');
-//     var tempTrId = 'tempTrId_' + i + '_' + location.location;
-//     tempTrEl.id = tempTrId;
-//     document.getElementById(tabId).appendChild(tempTrEl);
-//
-//     if (i === 0) {
-//       var tempTdEl1 = document.createElement('td');
-//       tempTdEl1.textContent = location.location;
-//       tempTdEl1.rowSpan = '15';
-//       document.getElementById(tempTrId).appendChild(tempTdEl1);
-//     }
-//
-//     var tempTdEl2 = document.createElement('td');
-//     tempTdEl2.textContent = hoursString[i];
-//     document.getElementById(tempTrId).appendChild(tempTdEl2);
-//
-//     var tempTdEl3 = document.createElement('td');
-//     tempTdEl3.textContent = location.totLbs[i];
-//     document.getElementById(tempTrId).appendChild(tempTdEl3);
-//
-//   }
+// FORM SECTION
+
+var formEl = document.createElement('form');
+document.body.appendChild(formEl);
+
+var formParagraph1El = document.createElement('label');
+formParagraph1El.textContent = 'Location';
+formEl.appendChild(formParagraph1El);
+
+var formInput1El = document.createElement('input');
+formInput1El.type = 'text';
+formInput1El.name = 'newInputLocation';
+formInput1El.size = 15;
+formInput1El.maxLength = 30;
+formInput1El.id = 'formLocation';
+formParagraph1El.appendChild(formInput1El);
+
+var dummyParagraphEl = document.createElement('p');
+dummyParagraphEl.id = 'result';
+formEl.appendChild(dummyParagraphEl);
+
+var formParagraph2El = document.createElement('label');
+formParagraph2El.textContent = 'Minimum customers';
+formEl.appendChild(formParagraph2El);
+
+var formInput2El = document.createElement('input');
+formInput2El.type = 'text';
+formInput2El.name = 'minimum customers';
+formInput2El.size = 15;
+formInput2El.maxLength = 30;
+formInput2El.id = 'minimumCustomers';
+formParagraph2El.appendChild(formInput2El);
+
+var formParagraph3El = document.createElement('label');
+formParagraph3El.textContent = 'Maximum customers';
+formEl.appendChild(formParagraph3El);
+
+var formInput3El = document.createElement('input');
+formInput3El.type = 'text';
+formInput3El.name = 'maximum customers';
+formInput3El.size = 15;
+formInput3El.maxLength = 30;
+formInput3El.id = 'maximumCustomers';
+formParagraph3El.appendChild(formInput3El);
+
+var formParagraph4El = document.createElement('label');
+formParagraph4El.textContent = 'Cups per customer';
+formEl.appendChild(formParagraph4El);
+
+var formInput4El = document.createElement('input');
+formInput4El.type = 'text';
+formInput4El.name = 'cups per customer';
+formInput4El.size = 15;
+formInput4El.maxLength = 30;
+formInput4El.id = 'cupsPerCustomer';
+formParagraph4El.appendChild(formInput4El);
+
+var formParagraph5El = document.createElement('label');
+formParagraph5El.textContent = 'Pounds per customer';
+formEl.appendChild(formParagraph5El);
+
+var formInput5El = document.createElement('input');
+formInput5El.type = 'text';
+formInput5El.name = 'pounds per customer';
+formInput5El.size = 15;
+formInput5El.maxLength = 30;
+formInput5El.id = 'lbsPerCustomer';
+formParagraph5El.appendChild(formInput5El);
+
+var formSubmitEl = document.createElement('button');
+formSubmitEl.textContent = 'Submit';
+formSubmitEl.id = 'button';
+formSubmitEl.type = 'button';
+formEl.appendChild(formSubmitEl);
+
+// function getLoc() {
+//   var locField = document.formParagraph1El.value;
+//   var result = document.dummyParagraphEl;
+// }
+
+// var subButton = document.formSubmitEl;
+// formSubmitEl.addEventListener('onClick', getLoc(), false);
+// var formSubmitEl = document.createElement('input');
+// formSubmitEl.type = 'button';
+// formSubmitEl.name = 'location data';
+// formSubmitEl.value = 'click';
+// formEl.appendChild(formSubmitEl);
+
+// function inputLoc() {
+//   var inputLocation = formInput1El.value;
+//   alert ('You typed: ' + inputLocation);
 // }
 //
-// tableData(pikePlaceMarket);
-// tableData(capitolHill);
-// tableData(seattlePublicLibrary);
-// tableData(southLakeUnion);
-// tableData(seaTacAirport);
-// tableData(websiteSales);
+// formInput1El.addEventListener('onClick',inputLoc,true);
