@@ -1,0 +1,38 @@
+.title {
+  text-align: center;
+  position: fixed !important;
+  height: 50px;
+  width: 100%;
+  z-index: 10000;
+  background-color: #B99980;
+  margin: -8px -8px;
+  color: #9B4600;
+}
+
+body {
+  background-color: #C8C8C8;
+}
+
+div {
+  height: 50px;
+}
+
+table {
+  display: table;
+  margin: 50px 50px 50px 50px;
+  border: 1px solid black;
+  border-collapse: collapse;
+  float: left;
+}
+
+th {
+  text-align: center;
+  border: 1px solid black;
+}
+
+ td {
+   text-align: center;
+   border: 1px solid black;
+   width: 150px;
+   height: 50px;
+ }

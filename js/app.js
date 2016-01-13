@@ -4,8 +4,7 @@
 /* jshint -W040 */
 /* jshint -W097 */
 
-var lbsPerCup = 0.05;
-var hoursString = ['6:00am','7:00am','8:00am','9:00am','10:00am','11:00am','12 noon','1:00pm','2:00pm','3:00pm','4:00pm','5:00pm','6:00pm','7:00pm','8:00pm'];
+var hoursString = ['6 am','7 am','8 am','9 am','10 am','11 am','12 pm','1 pm','2 pm','3 pm','4 pm','5 pm','6 pm','7 pm','8 pm'];
 
 function shopLocData(location,minCustomers,maxCustomers,cupsPer,poundsPer) {
   this.location = location;
@@ -14,28 +13,27 @@ function shopLocData(location,minCustomers,maxCustomers,cupsPer,poundsPer) {
   this.cupsPer = cupsPer;
   this.poundsPer = poundsPer;
 
-  var customers = [];
-  var cups = [];
-  var cupLbs = [];
-  var rawLbs = [];
-  var totLbs = [];
-  for (var i = 0; i < hoursString.length; i++) {
-    var randomCustomers = Math.floor(Math.random() * (maxCustomers - minCustomers)) + minCustomers;
-    var tempCups = randomCustomers * cupsPer;
-    var tempCupLbs = tempCups * lbsPerCup;
-    var tempRawLbs = randomCustomers * poundsPer;
-    var tempTotLbs = tempCupLbs + tempRawLbs;
-    customers[i] = randomCustomers;
-    cups[i] = tempCups.toFixed(1);
-    cupLbs[i] = tempCupLbs.toFixed(1);
-    rawLbs[i] = tempRawLbs.toFixed(1);
-    totLbs[i] = tempTotLbs.toFixed(1);
-  }
-  this.customers = customers;
-  this.cups = cups;
-  this.cupLbs = cupLbs;
-  this.rawLbs = rawLbs;
-  this.totLbs = totLbs;
+  this.customers = [];
+  this.cups = [];
+  this.cupLbs = [];
+  this.rawLbs = [];
+  this.totLbs = [];
+  this.calculator = function () {
+    for (var i = 0; i < hoursString.length; i++) {
+      var lbsPerCup = 0.05;
+      var randomCustomers = Math.floor(Math.random() * (maxCustomers - minCustomers) + 1) + minCustomers;
+      var tempCups = randomCustomers * cupsPer;
+      var tempCupLbs = tempCups * lbsPerCup;
+      var tempRawLbs = randomCustomers * poundsPer;
+      var tempTotLbs = tempCupLbs + tempRawLbs;
+      this.customers[i] = randomCustomers;
+      this.cups[i] = tempCups.toFixed(1);
+      this.cupLbs[i] = tempCupLbs.toFixed(1);
+      this.rawLbs[i] = tempRawLbs.toFixed(1);
+      this.totLbs[i] = tempTotLbs.toFixed(1);
+    }
+  };
+  this.calculator();
 }
 
 var pikePlaceMarket = new shopLocData('Pike Place Market',14,55,1.2,3.7);
@@ -45,127 +43,152 @@ var southLakeUnion = new shopLocData('South Lake Union',35,88,1.3,3.7);
 var seaTacAirport = new shopLocData('SeaTac Airport',68,124,1.1,2.7);
 var websiteSales = new shopLocData('Website Sales',3,6,0,6.7);
 
-function tableData(location) {
-  var tableEl = document.createElement('table');
-  var tabId = 'tableId' + location.location;
-  tableEl.id = tabId;
-  document.body.appendChild(tableEl);
+var tableEl = document.createElement('table');
+document.body.appendChild(tableEl);
 
-  var theadEl = document.createElement('thead');
-  var theadId = 'theadId' + location.location;
-  theadEl.id = theadId;
-  document.getElementById(tabId).appendChild(theadEl);
+var theadEl = document.createElement('thead');
+tableEl.appendChild(theadEl);
 
-  var trEl = document.createElement('tr');
-  var trId = 'trId' + location.location;
-  trEl.id = trId;
-  document.getElementById(theadId).appendChild(trEl);
+var trTopEl = document.createElement('tr');
+theadEl.appendChild(trTopEl);
 
-  var th1El = document.createElement('th');
-  var th1Id = 'th1Id' + location.location;
-  th1El.id = th1Id;
-  th1El.textContent = 'Location';
-  document.getElementById(trId).appendChild(th1El);
+var td1TopEl = document.createElement('td');
+trTopEl.appendChild(td1TopEl);
 
-  var th2El = document.createElement('th');
-  var th2Id = 'th2Id' + location.location;
-  th2El.id = th2Id;
-  th2El.textContent = 'Hours';
-  document.getElementById(trId).appendChild(th2El);
+var td2TopEl = document.createElement('td');
+td2TopEl.textContent = 'Coffee Pounds Required per Location per Hour (lbs)';
+td2TopEl.colSpan = 15;
+trTopEl.appendChild(td2TopEl);
 
-  var th3El = document.createElement('th');
-  var th3Id = 'th3Id' + location.location;
-  th3El.id = th3Id;
-  th3El.textContent = 'Total Pounds(lbs)';
-  document.getElementById(trId).appendChild(th2El);
+var trEl = document.createElement('tr');
+theadEl.appendChild(trEl);
 
-  var th4El = document.createElement('th');
-  var th4Id = 'th4Id' + location.location;
-  th4El.id = th4Id;
-  th4El.textContent = 'Customers';
-  document.getElementById(trId).appendChild(th4El);
+var th1El = document.createElement('th');
+th1El.textContent = 'Location';
+trEl.appendChild(th1El);
 
-  var th5El = document.createElement('th');
-  var th5Id = 'th5Id' + location.location;
-  th5El.id = th5Id;
-  th5El.textContent = 'Total Cups';
-  document.getElementById(trId).appendChild(th5El);
+function initTable(hoursString) {
+  for (var i = 0; i < hoursString.length; i++) {
+    var iEl = document.createElement('th');
+    iEl.textContent = hoursString[i];
+    trEl.appendChild(iEl);
+  }
+}
+initTable(hoursString);
 
-  var th6El = document.createElement('th');
-  var th6Id = 'th6Id' + location.location;
-  th6El.id = th2Id;
-  th6El.textContent = 'Cup Pounds (lbs)';
-  document.getElementById(trId).appendChild(th6El);
+function tablePopulate(location) {
+  var rowEl = document.createElement('tr');
+  tableEl.appendChild(rowEl);
 
-  var th7El = document.createElement('th');
-  var th7Id = 'th2Id' + location.location;
-  th7El.id = th2Id;
-  th7El.textContent = 'To-go Pounds (lbs)';
-  document.getElementById(trId).appendChild(th7El);
+  var nameEl = document.createElement('td');
+  nameEl.textContent = location.location;
+  rowEl.appendChild(nameEl);
 
   for (var i = 0; i < hoursString.length; i++) {
-    var tempTrEl = document.createElement('tr');
-    var tempTrId = 'tempTrId_' + i + '_' + location.location;
-    tempTrEl.id = tempTrId;
-    document.getElementById(tabId).appendChild(tempTrEl);
-
-    var tempTdEl1 = document.createElement('td');
-    tempTdEl1.textContent = location.location;
-    tempTdEl1.rowspan = '15';
-    document.getElementById(tempTrId).appendChild(tempTdEl1);
-
-    var tempTdEl2 = document.createElement('td');
-    tempTdEl2.textContent = hoursString[i];
-    document.getElementById(tempTrId).appendChild(tempTdEl2);
-
-    var tempTdEl3 = document.createElement('td');
-    tempTdEl3.textContent = location.customers[i];
-    document.getElementById(tempTrId).appendChild(tempTdEl3);
-
-    var tempTdEl4 = document.createElement('td');
-    tempTdEl4.textContent = location.cups[i];
-    document.getElementById(tempTrId).appendChild(tempTdEl4);
-
-    var tempTdEl5 = document.createElement('td');
-    tempTdEl5.textContent = location.cupLbs[i];
-    document.getElementById(tempTrId).appendChild(tempTdEl5);
-
-    var tempTdEl6 = document.createElement('td');
-    tempTdEl6.textContent = location.rawLbs[i];
-    document.getElementById(tempTrId).appendChild(tempTdEl6);
+    var tdEl = document.createElement('td');
+    tdEl.textContent = location.totLbs[i];
+    rowEl.appendChild(tdEl);
   }
 }
 
-tableData(pikePlaceMarket);
-tableData(capitolHill);
-tableData(seattlePublicLibrary);
-tableData(southLakeUnion);
-tableData(seaTacAirport);
-tableData(websiteSales);
+tablePopulate(pikePlaceMarket);
+tablePopulate(capitolHill);
+tablePopulate(seattlePublicLibrary);
+tablePopulate(southLakeUnion);
+tablePopulate(seaTacAirport);
+tablePopulate(websiteSales);
 
-// function appendData(location) {
-//   var paragraphEl = document.createElement('p');
-//   var parId = 'parId';
-//   paragraphEl.textContent = location.location;
-//   document.body.appendChild(paragraphEl);
-//
-//   var unorderedListEl = document.createElement('ul');
-//   var ulId = location.location + 'ulId';
-//   unorderedListEl.id = ulId;
-//   document.body.appendChild(unorderedListEl);
-//
-//   for (var i = 0; i < hoursString.length; i++) {
-//
-//     var listEl = document.createElement('li');
-//     listEl.textContent = hoursString[i] + ': ' + location.totLbs[i] + ' lbs [' + location.customers[i] + ' customers, ' + location.cups[i] + ' cups (' + location.cupLbs[i] + ' lbs), ' + location.rawLbs[i] + ' lbs to-go]';
-//     document.getElementById(ulId).appendChild(listEl);
-//
-//   }
+// FORM SECTION
+
+var formEl = document.createElement('form');
+document.body.appendChild(formEl);
+
+var formParagraph1El = document.createElement('label');
+formParagraph1El.textContent = 'Location';
+formEl.appendChild(formParagraph1El);
+
+var formInput1El = document.createElement('input');
+formInput1El.type = 'text';
+formInput1El.name = 'newInputLocation';
+formInput1El.size = 15;
+formInput1El.maxLength = 30;
+formInput1El.id = 'formLocation';
+formParagraph1El.appendChild(formInput1El);
+
+var dummyParagraphEl = document.createElement('p');
+dummyParagraphEl.id = 'result';
+formEl.appendChild(dummyParagraphEl);
+
+var formParagraph2El = document.createElement('label');
+formParagraph2El.textContent = 'Minimum customers';
+formEl.appendChild(formParagraph2El);
+
+var formInput2El = document.createElement('input');
+formInput2El.type = 'text';
+formInput2El.name = 'minimum customers';
+formInput2El.size = 15;
+formInput2El.maxLength = 30;
+formInput2El.id = 'minimumCustomers';
+formParagraph2El.appendChild(formInput2El);
+
+var formParagraph3El = document.createElement('label');
+formParagraph3El.textContent = 'Maximum customers';
+formEl.appendChild(formParagraph3El);
+
+var formInput3El = document.createElement('input');
+formInput3El.type = 'text';
+formInput3El.name = 'maximum customers';
+formInput3El.size = 15;
+formInput3El.maxLength = 30;
+formInput3El.id = 'maximumCustomers';
+formParagraph3El.appendChild(formInput3El);
+
+var formParagraph4El = document.createElement('label');
+formParagraph4El.textContent = 'Cups per customer';
+formEl.appendChild(formParagraph4El);
+
+var formInput4El = document.createElement('input');
+formInput4El.type = 'text';
+formInput4El.name = 'cups per customer';
+formInput4El.size = 15;
+formInput4El.maxLength = 30;
+formInput4El.id = 'cupsPerCustomer';
+formParagraph4El.appendChild(formInput4El);
+
+var formParagraph5El = document.createElement('label');
+formParagraph5El.textContent = 'Pounds per customer';
+formEl.appendChild(formParagraph5El);
+
+var formInput5El = document.createElement('input');
+formInput5El.type = 'text';
+formInput5El.name = 'pounds per customer';
+formInput5El.size = 15;
+formInput5El.maxLength = 30;
+formInput5El.id = 'lbsPerCustomer';
+formParagraph5El.appendChild(formInput5El);
+
+var formSubmitEl = document.createElement('button');
+formSubmitEl.textContent = 'Submit';
+formSubmitEl.id = 'button';
+formSubmitEl.type = 'button';
+formEl.appendChild(formSubmitEl);
+
+// function getLoc() {
+//   var locField = document.formParagraph1El.value;
+//   var result = document.dummyParagraphEl;
+// }
+
+// var subButton = document.formSubmitEl;
+// formSubmitEl.addEventListener('onClick', getLoc(), false);
+// var formSubmitEl = document.createElement('input');
+// formSubmitEl.type = 'button';
+// formSubmitEl.name = 'location data';
+// formSubmitEl.value = 'click';
+// formEl.appendChild(formSubmitEl);
+
+// function inputLoc() {
+//   var inputLocation = formInput1El.value;
+//   alert ('You typed: ' + inputLocation);
 // }
 //
-// appendData(pikePlaceMarket);
-// appendData(capitolHill);
-// appendData(seattlePublicLibrary);
-// appendData(southLakeUnion);
-// appendData(seaTacAirport);
-// appendData(websiteSales);
+// formInput1El.addEventListener('onClick',inputLoc,true);
