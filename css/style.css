@@ -1,36 +1,110 @@
+body {
+  background-color: black;
+}
+
+li a {
+  text-decoration: none;
+  color: white;
+}
+
+li a.visited {
+  text-decoration: none;
+  color: white;
+}
+
+li a.hover {
+  text-decoration: none;
+}
+
+.navUl {
+  list-style-type: none;
+  text-align: center;
+}
+.nav {
+  display: inline;
+  margin: auto 10px auto 10px;
+  color: white;
+  font-family: futura;
+}
+
 .title {
-  color: #194635;
+  position: relative;
   text-align: center;
-  background-color: #31A076;
-  margin-top: 10px;
-  margin-bottom: 10px;
+  font-size: 3.5em;
+  color: white ;
+  z-index: 1;
+  font-family: futura;
 }
 
-.image {
+.tentImage {
   display: block;
-  margin: 10px auto 10px auto;
-  /*margin-left: auto;
-  margin-right: auto;
-  margin-top: 10px;
-  margin-bottom: 10px;*/
-  background-color: #AA7B39;
+  margin: -8em auto auto auto;
+  width: 50em;
 }
 
-.link {
+.campCoffeeImage {
+  float: left;
+  margin-left: 2em;
+  margin-right: 0em;
+  width: 200px;
+}
+
+.aboutSection {
+}
+
+.aboutH1 {
+  color: white;
+  font-size: 2em;
+  font-family: futura;
+}
+
+.aboutP {
+  color: white;
+  font-size: 1em;
+  font-family: futura;
+}
+
+.campfireFamilyImage {
+  float: left;
+  margin-left: 2em;
+  margin-right: 0em;
+  width: 200px;
+}
+
+.sustainabilityH1 {
+  color: white;
+  font-size: 2em;
+  font-family: futura;
+}
+
+.sustainabilityP {
+  color: white;
+  font-size: 1em;
+  font-family: futura;
+}
+
+.campfireImage {
+  display:block;
+  width: 200px;
+  margin: 150px auto 10px auto;
+}
+
+.locListUl {
+  list-style: none;
+}
+.locListLi {
+  color: white;
   text-align: center;
 }
 
-.locList {
-  display: table;
-  margin-left: auto;
-  margin-right: auto;
-  color: #673A25;
+.locListH3 {
+  color: white;
+  text-align: center;
+  font-family: futura;
 }
 
-.map {
-  width: 500px;
-  height: 400px;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
+.slogan {
+  color: white;
+  text-align: center;
+  font-style: italic;
 }
