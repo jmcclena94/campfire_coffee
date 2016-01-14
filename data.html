@@ -6,7 +6,6 @@
 </head>
 <body>
   <h1 class="title">Business Analytics</h1>
-  <script src="js/app.js"></script>
   <form id="newFormLoc">
     <fieldset>
       <legend>Add a new location</legend>
@@ -19,8 +18,10 @@
       <label>Cups per customer</label><input type="number" name="cups per customer" size="15" maxlength="30" id="cupsPerCustomer">
       <p></p>
       <label>Pounds per customer</label><input type="number" name="pounds per customer" size="15" maxlength="30" id="lbsPerCustomer">
-      <button id="button" type="button" onclick="locData()">Submit</button>
+      <button id="button" type="submit">Submit</button>
+      <!-- <button id="button" type="button" onclick="locData()">Submit</button> -->
     </fieldset>
   </form>
+  <script src="js/app.js"></script>
 </body>
 </html>
