@@ -43,14 +43,68 @@ li a.hover {
 }
 
 .campCoffeeImage {
-  margin-top: 5em;
+  float: left;
   margin-left: 2em;
-  width: 15em
+  margin-right: 0em;
+  width: 200px;
 }
 
-.about {
-  display: inline;
-  /*float: left;*/
+.aboutSection {
+}
+
+.aboutH1 {
+  color: white;
+  font-size: 2em;
+  font-family: futura;
+}
+
+.aboutP {
   color: white;
   font-size: 1em;
+  font-family: futura;
+}
+
+.campfireFamilyImage {
+  float: left;
+  margin-left: 2em;
+  margin-right: 0em;
+  width: 200px;
+}
+
+.sustainabilityH1 {
+  color: white;
+  font-size: 2em;
+  font-family: futura;
+}
+
+.sustainabilityP {
+  color: white;
+  font-size: 1em;
+  font-family: futura;
+}
+
+.campfireImage {
+  display:block;
+  width: 200px;
+  margin: 150px auto 10px auto;
+}
+
+.locListUl {
+  list-style: none;
+}
+.locListLi {
+  color: white;
+  text-align: center;
+}
+
+.locListH3 {
+  color: white;
+  text-align: center;
+  font-family: futura;
+}
+
+.slogan {
+  color: white;
+  text-align: center;
+  font-style: italic;
 }

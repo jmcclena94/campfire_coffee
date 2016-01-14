@@ -167,11 +167,12 @@ tablePopulate(websiteSales);
 
 function locData() {
   var newLocData = document.getElementById('formLocation').value;
-  var newMinCust = document.getElementById('minimumCustomers').value;
-  var newMaxCust = document.getElementById('maximumCustomers').value;
-  var newCupsPer = document.getElementById('cupsPerCustomer').value;
-  var newToGoPer = document.getElementById('lbsPerCustomer').value;
+  var newMinCust = parseInt(document.getElementById('minimumCustomers').value);
+  var newMaxCust = parseInt(document.getElementById('maximumCustomers').value);
+  var newCupsPer = parseFloat(document.getElementById('cupsPerCustomer').value);
+  var newToGoPer = parseFloat(document.getElementById('lbsPerCustomer').value);
 
   var newLocation = new shopLocData(newLocData,newMinCust,newMaxCust,newCupsPer,newToGoPer);
+
   tablePopulate(newLocation);
 }
