@@ -164,8 +164,10 @@ tablePopulate(seaTacAirport);
 tablePopulate(websiteSales);
 
 // FORM SECTION
+var newFormEntry = document.getElementById('newFormLoc');
 
 function locData() {
+  event.preventDefault();
   var newLocData = document.getElementById('formLocation').value;
   var newMinCust = parseInt(document.getElementById('minimumCustomers').value);
   var newMaxCust = parseInt(document.getElementById('maximumCustomers').value);
@@ -173,6 +175,9 @@ function locData() {
   var newToGoPer = parseFloat(document.getElementById('lbsPerCustomer').value);
 
   var newLocation = new shopLocData(newLocData,newMinCust,newMaxCust,newCupsPer,newToGoPer);
+  document.getElementById('newFormLoc').reset();
 
   tablePopulate(newLocation);
 }
+
+newFormEntry.addEventListener('submit', locData)
