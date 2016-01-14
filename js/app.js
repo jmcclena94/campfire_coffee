@@ -173,6 +173,7 @@ function locData() {
   var newToGoPer = parseFloat(document.getElementById('lbsPerCustomer').value);
 
   var newLocation = new shopLocData(newLocData,newMinCust,newMaxCust,newCupsPer,newToGoPer);
+  document.getElementById('newFormLoc').reset();
 
   tablePopulate(newLocation);
 }
