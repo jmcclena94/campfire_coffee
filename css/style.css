@@ -45,8 +45,8 @@ li a.hover {
 .campCoffeeImage {
   float: left;
   margin-left: 2em;
-  margin-right: 0em;
-  width: 200px;
+  margin-right: 1em;
+  width: 190px;
 }
 
 .aboutSection {
@@ -67,8 +67,8 @@ li a.hover {
 .campfireFamilyImage {
   float: left;
   margin-left: 2em;
-  margin-right: 0em;
-  width: 200px;
+  margin-right: 1em;
+  width: 190px;
 }
 
 .sustainabilityH1 {
@@ -107,4 +107,11 @@ li a.hover {
   color: white;
   text-align: center;
   font-style: italic;
+}
+
+#map {
+  display: block;
+  margin: 10px auto 10px auto;
+  width: 300px;
+  height: 400px;
 }
