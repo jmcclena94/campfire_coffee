@@ -53,7 +53,7 @@ var seaTacAirport = new shopLocData('SeaTac Airport',68,124,1.1,2.7);
 var websiteSales = new shopLocData('Website Sales',3,6,0,6.7);
 
 var tableEl = document.createElement('table');
-document.body.appendChild(tableEl);
+document.getElementById('dataTable').appendChild(tableEl);
 
 var theadEl = document.createElement('thead');
 tableEl.appendChild(theadEl);

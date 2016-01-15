@@ -5,7 +5,7 @@ body {
 
 .navUl {
   list-style-type: none;
-  text-align: center;
+  text-align: left;
 }
 
 .navContainer ul li {
@@ -19,6 +19,24 @@ body {
   font-size: 1.5em
 }
 
+#aboutId {
+  border: 10px solid #201887;
+  border-radius: 20px;
+  padding: 1em 1em 1em 1em;
+}
+
+#missionId {
+  border: 10px solid #D45100;
+  border-radius: 20px;
+  padding: 1em 1em 1em 1em;
+}
+
+#sustainabilityId {
+  border: 10px solid #31DB16;
+  border-radius: 20px;
+  padding: 1em 1em 1em 1em;
+}
+
 /*.titleText {
   z-index: 1;
 }
@@ -28,8 +46,6 @@ body {
 }*/
 
 #map {
-  /*display: block;*/
-  /*margin: 10px auto 10px auto;*/
   width: 20em;
-  height: 23em;
+  height: 29em;
 }
