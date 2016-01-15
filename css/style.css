@@ -1,3 +1,8 @@
+body {
+  background-color: #727371;
+  color: white;
+}
+
 .navUl {
   list-style-type: none;
   text-align: center;
@@ -8,13 +13,23 @@
   margin: auto 10px auto 10px
 }
 
-#map {
-  display: block;
-  margin: 10px auto 10px auto;
-  width: 300px;
-  height: 400px;
+.navContainer ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.5em
 }
 
-body {
-  background-color: #007304;
+/*.titleText {
+  z-index: 1;
+}
+
+.titleImage {
+  margin-top: -5em;
+}*/
+
+#map {
+  /*display: block;*/
+  /*margin: 10px auto 10px auto;*/
+  width: 20em;
+  height: 23em;
 }

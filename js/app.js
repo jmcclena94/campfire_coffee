@@ -166,18 +166,24 @@ tablePopulate(websiteSales);
 // FORM SECTION
 var newFormEntry = document.getElementById('newFormLoc');
 
-function locData() {
+function locData(event) {
   event.preventDefault();
+  if (!event.target.locFor.value || !event.target.minFor.value || !event.target.maxFor.value || !event.target.cupsFor.value || !event.target.lbsFor.value) {
+    return alert('Fields cannot be empty');
+  }
+
   var newLocData = document.getElementById('formLocation').value;
   var newMinCust = parseInt(document.getElementById('minimumCustomers').value);
   var newMaxCust = parseInt(document.getElementById('maximumCustomers').value);
   var newCupsPer = parseFloat(document.getElementById('cupsPerCustomer').value);
   var newToGoPer = parseFloat(document.getElementById('lbsPerCustomer').value);
 
+  if (newLocData)
+
   var newLocation = new shopLocData(newLocData,newMinCust,newMaxCust,newCupsPer,newToGoPer);
-  document.getElementById('newFormLoc').reset();
 
   tablePopulate(newLocation);
+  document.getElementById('newFormLoc').reset();
 }
 
 newFormEntry.addEventListener('submit', locData)
