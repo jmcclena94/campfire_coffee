@@ -1,4 +1,62 @@
 body {
+  background-color: black;
+  color: white;
+}
+
+.containerNav {
+  display: flex;
+  list-style-type: none;
+  justify-content: space-around;
+  font-family: futura;
+  flex-wrap: wrap;
+}
+
+.containerNav li a {
+  color: white;
+  text-decoration: none;
+  font-size: 2.5vw;
+}
+
+.containerTitle{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.titleImage {
+  position: relative;
+  width: 75vw;
+}
+
+.titleText {
+  z-index: 1;
+  position: absolute;
+  color: white;
+  font-size: 5.5vw;
+  top: 8vh;
+  left: 38vw;
+  text-align: center;
+}
+
+.containerAbout {
+  margin-top: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content:flex-start;
+  align-items: center;
+}
+
+.campfireCoffeeImage {
+  display: block;
+  width: 200px;
+  height: auto;
+}
+
+.aboutText {
+  margin-left: 10px
+}
+
+/*body {
   background-color: #727371;
   color: white;
 }
@@ -37,15 +95,7 @@ body {
   padding: 1em 1em 1em 1em;
 }
 
-/*.titleText {
-  z-index: 1;
-}
-
-.titleImage {
-  margin-top: -5em;
-}*/
-
 #map {
   width: 20em;
   height: 29em;
-}
+}*/
