@@ -1,118 +1,51 @@
 body {
-  background-color: black;
-}
-
-li a {
-  text-decoration: none;
+  background-color: #727371;
   color: white;
-}
-
-li a.visited {
-  text-decoration: none;
-  color: white;
-}
-
-li a.hover {
-  text-decoration: none;
 }
 
 .navUl {
   list-style-type: none;
-  text-align: center;
+  text-align: left;
 }
-.nav {
+
+.navContainer ul li {
   display: inline;
-  margin: auto 10px auto 10px;
-  color: white;
-  font-family: futura;
+  margin: auto 10px auto 10px
 }
 
-.title {
-  position: relative;
-  text-align: center;
-  font-size: 3.5em;
-  color: white ;
+.navContainer ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.5em
+}
+
+#aboutId {
+  border: 10px solid #201887;
+  border-radius: 20px;
+  padding: 1em 1em 1em 1em;
+}
+
+#missionId {
+  border: 10px solid #D45100;
+  border-radius: 20px;
+  padding: 1em 1em 1em 1em;
+}
+
+#sustainabilityId {
+  border: 10px solid #31DB16;
+  border-radius: 20px;
+  padding: 1em 1em 1em 1em;
+}
+
+/*.titleText {
   z-index: 1;
-  font-family: futura;
 }
 
-.tentImage {
-  display: block;
-  /*margin: 0em auto auto auto;*/
-  margin: -8em auto auto auto;
-  width: 50em;
-}
-
-.campCoffeeImage {
-  float: left;
-  margin-left: 2em;
-  margin-right: 1em;
-  width: 190px;
-}
-
-.aboutSection {
-}
-
-.aboutH1 {
-  color: white;
-  font-size: 2em;
-  font-family: futura;
-}
-
-.aboutP {
-  color: white;
-  font-size: 1em;
-  font-family: futura;
-}
-
-.campfireFamilyImage {
-  float: left;
-  margin-left: 2em;
-  margin-right: 1em;
-  width: 190px;
-}
-
-.sustainabilityH1 {
-  color: white;
-  font-size: 2em;
-  font-family: futura;
-}
-
-.sustainabilityP {
-  color: white;
-  font-size: 1em;
-  font-family: futura;
-}
-
-.campfireImage {
-  display:block;
-  width: 200px;
-  margin: 150px auto 10px auto;
-}
-
-.locListUl {
-  list-style: none;
-}
-.locListLi {
-  color: white;
-  text-align: center;
-}
-
-.locListH3 {
-  color: white;
-  text-align: center;
-  font-family: futura;
-}
-
-.slogan {
-  color: white;
-  text-align: center;
-  font-style: italic;
-}
+.titleImage {
+  margin-top: -5em;
+}*/
 
 #map {
-  display: block;
-  margin: 10px auto 10px auto;
-  width: 300px;
-  height: 400px;
+  width: 20em;
+  height: 29em;
 }

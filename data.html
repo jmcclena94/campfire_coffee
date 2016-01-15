@@ -1,27 +1,33 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <link href="css/normalize.css" type="text/css" rel="stylesheet" />
+  <link href="css/skeleton.css" type="text/css" rel="stylesheet" />
   <link href="css/analytics_style.css" type="text/css" rel="stylesheet" />
-  <title>Business Analytics - Campfire Coffe</title>
+  <title>Business Analytics - Campfire Coffee</title>
 </head>
 <body>
-  <h1 class="title">Business Analytics</h1>
-  <form id="newFormLoc">
-    <fieldset>
-      <legend>Add a new location</legend>
-      <label>Location</label><input type="text" name="newInputLocation" size="15" maxlength="30" id="formLocation">
-      <p></p>
-      <label>Minimum Customers</label><input type="number" name="minimum customers" size="15" maxlength="30" id="minimumCustomers">
-      <p></p>
-      <label>Maximum Customers</label><input type="number" name="maximum customers" size="15" maxlength="30" id="maximumCustomers">
-      <p></p>
-      <label>Cups per customer</label><input type="number" name="cups per customer" size="15" maxlength="30" id="cupsPerCustomer">
-      <p></p>
-      <label>Pounds per customer</label><input type="number" name="pounds per customer" size="15" maxlength="30" id="lbsPerCustomer">
-      <button id="button" type="submit">Submit</button>
-      <!-- <button id="button" type="button" onclick="locData()">Submit</button> -->
-    </fieldset>
-  </form>
-  <script src="js/app.js"></script>
+  <div class="container">
+    <h1 class="title">Business Analytics</h1>
+    <div class="row">
+      <div class="three columns">
+        <form id="newFormLoc">
+          <fieldset>
+            <legend>Add a new location</legend>
+            <label for="locFor">Location</label><input type="text" name="locFor" size="15" maxlength="30" id="formLocation">
+            <label for="minFor">Minimum Customers</label><input name="minFor" size="15" maxlength="30" id="minimumCustomers">
+            <label for="maxFor">Maximum Customers</label><input name="maxFor" size="15" maxlength="30" id="maximumCustomers">
+            <label for="cupsFor">Cups per customer</label><input name="cupsFor" size="15" maxlength="30" id="cupsPerCustomer">
+            <label for="lbsFor">Pounds per customer</label><input name="lbsFor" size="15" maxlength="30" id="lbsPerCustomer">
+            <input type="submit">
+          </fieldset>
+        </form>
+      </div>
+      <div class="eight columns" id="dataTable">
+
+      </div>
+    </div>
+    <script src="js/app.js"></script>
+  </div>
 </body>
 </html>

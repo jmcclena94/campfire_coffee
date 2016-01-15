@@ -1,17 +1,7 @@
-table {
-  display: table;
-  margin: 50px 50px 50px 50px;
-  border: 1px solid black;
-  border-collapse: collapse;
-  float: left;
-}
+td {
+   font-size: 0.75em;
+ }
 
 th {
-  text-align: center;
-  border: 1px solid black;
+  font-size: 0.75em;
 }
-
- td {
-   text-align: center;
-   border: 1px solid black;
- }
