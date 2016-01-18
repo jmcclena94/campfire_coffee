@@ -69,7 +69,7 @@ trTopEl.appendChild(emptyEl1);
 
 var td2TopEl = document.createElement('th');
 td2TopEl.textContent = 'Coffee Pounds Required per Location per Hour (lbs)';
-td2TopEl.colSpan = 15;
+td2TopEl.colSpan = (hoursString.length);
 trTopEl.appendChild(td2TopEl);
 
 var trEl = document.createElement('tr');
@@ -82,14 +82,13 @@ trEl.appendChild(th1El);
 var emptyEl2 = document.createElement('th');
 trEl.appendChild(emptyEl2);
 
-function initTable(hoursString) {
+(function initTable() {
   for (var i = 0; i < hoursString.length; i++) {
     var iEl = document.createElement('th');
     iEl.textContent = hoursString[i];
     trEl.appendChild(iEl);
   }
-}
-initTable(hoursString);
+})();
 
 var totColEl = document.createElement('th');
 totColEl.textContent = 'Total (lbs)';
@@ -123,7 +122,6 @@ function tablePopulate(location) {
   rawRowEl.appendChild(hourlyRawTotEl);
 
   for (var i = 0; i < hoursString.length; i++) {
-
     var tdEl = document.createElement('td');
     tdEl.textContent = location.totLbs[i];
     rowEl.appendChild(tdEl);
@@ -173,17 +171,15 @@ function locData(event) {
   }
 
   var newLocData = document.getElementById('formLocation').value;
-  var newMinCust = parseInt(document.getElementById('minimumCustomers').value);
-  var newMaxCust = parseInt(document.getElementById('maximumCustomers').value);
-  var newCupsPer = parseFloat(document.getElementById('cupsPerCustomer').value);
-  var newToGoPer = parseFloat(document.getElementById('lbsPerCustomer').value);
+  var newMinCust = document.getElementById('minimumCustomers').value;
+  var newMaxCust = document.getElementById('maximumCustomers').value;
+  var newCupsPer = document.getElementById('cupsPerCustomer').value;
+  var newToGoPer = document.getElementById('lbsPerCustomer').value;
 
-  if (newLocData)
-
-  var newLocation = new shopLocData(newLocData,newMinCust,newMaxCust,newCupsPer,newToGoPer);
+  var newLocation = new shopLocData(newLocData,+newMinCust,+newMaxCust,+newCupsPer,+newToGoPer);
 
   tablePopulate(newLocation);
   document.getElementById('newFormLoc').reset();
 }
 
-newFormEntry.addEventListener('submit', locData)
+newFormEntry.addEventListener('submit', locData);
